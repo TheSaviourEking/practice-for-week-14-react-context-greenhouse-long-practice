@@ -16,4 +16,4 @@ export default function ClimateProvider({ children }) {
     )
 }
 
-const useClimate = () => useContext(ClimateContext);
+export const useClimate = () => useContext(ClimateContext);
