@@ -10,17 +10,17 @@ function Hygrometer() {
 
   useEffect(() => {
     if (humidity !== defaultHumidity) {
-      const intervalId = setTimeout(() => {
+      const timeoutId = setTimeout(() => {
         setHumidity(prevHumidity => {
           if (prevHumidity < defaultHumidity) prevHumidity++;
           else if (prevHumidity > defaultHumidity) prevHumidity--;
           else {
-            clearTimeout(intervalId)
+            clearTimeout(timeoutId)
           }
           return prevHumidity;
         })
-        setTimeout(intervalId);
-        return () => clearTimeout(intervalId);
+        setTimeout(timeoutId);
+        return () => clearTimeout(timeoutId);
       }, 1000)
     }
   }, [humidity, defaultHumidity])
